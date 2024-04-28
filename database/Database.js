@@ -8,7 +8,7 @@ export default async function connect() {
         host: "localhost",
         user: "root",
         password: "",
-        database: "p2_trabalho_final"
+        database: "p2_exame"
     });
 
     global.connection = connection;
