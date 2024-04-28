@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import InscricaoController from './controllers/InscricaoController.js';
+import NewsletterController from './controllers/NewsletterController.js';
 
 const app = express();
 const api = express.Router();
@@ -9,18 +9,18 @@ app.use(cors());
 
 app.use(express.json());
 
-api.get('/inscricao/:cpf', (req, res) => {
-    InscricaoController.search(req.params.cpf).then((result) => {
+api.get('/newsletter/:email', (req, res) => {
+    NewsletterController.search(req.params.email).then((result) => {
         res.json(result);
     });
 });
-api.post('/inscricao', (req, res) => {
-    InscricaoController.insert(req.body).then((result) => {
+api.post('/newsletter', (req, res) => {
+    NewsletterController.insert(req.body).then((result) => {
         res.json(result);
     });
 });
-api.delete('/inscricao/:id', (req, res) => {
-    InscricaoController.delete(req.params.id).then((result) => {
+api.delete('/newsletter/:id', (req, res) => {
+    NewsletterController.delete(req.params.id).then((result) => {
         res.json(result);
     });
 });
